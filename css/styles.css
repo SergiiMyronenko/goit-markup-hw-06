@@ -12,6 +12,7 @@
     --social-icon-color: #AFB1B8;
     --duration: 250ms;
     --timing-fun: cubic-bezier(0.4, 0, 0.2, 1);
+    --active-button: #188CE8;
 }
 
 body {
@@ -72,7 +73,7 @@ padding-left:15px;
 
 
 
-<!--HEADER-->
+/* HEADER */
 
 
 .header {
@@ -208,6 +209,8 @@ color: var(--primary-background-color);
     cursor: pointer;
     border-radius: 4px;
     border: none;
+    justify-content: center;
+    align-items: center;;
     
 font-weight: 700;
 font-size: 16px;
@@ -217,7 +220,14 @@ letter-spacing: 0.06em;
 
 color: var(--primary-background-color);
 background-color: var(--primary-accent-color);
+transition: background-color 250ms var(--timing-fun);
 }
+
+.hero-button:hover,
+.hero-button:focus {
+    background-color: var(--active-button);
+}
+
 
 
 
@@ -231,7 +241,7 @@ color: var(--primary-text-color);
 
 }
 
-<!-- Особенности (with the hidden) -->
+
 
  .visually-hidden {
     position: absolute;
@@ -456,7 +466,7 @@ flex-basis: calc((100% - 150px) / 6);
 display: flex;
 flex-wrap: wrap;
 gap: 70px;
-/* align-items: baseline; */
+align-items: baseline;
 }
 
 
@@ -512,17 +522,8 @@ color: var(--primary-background-color);
     margin-bottom: 9px;
 }
 
-.join-up {
-    padding-top: 15px;
-   
-}
 
-.subscription-block {
-    
-    padding-top: 23px;
-    padding-left: 23px;
-       
-}
+
 
 .subscription-form {
     display: flex;
@@ -532,9 +533,12 @@ color: var(--primary-background-color);
 
 .subscription-input {
     width: 358px;
+    padding: 16px;
+    
     border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 4px;
     background: transparent;
+    color: var(--primary-background-color);
 }
 
 .subscription-input::placeholder {
@@ -549,37 +553,9 @@ color: var(--primary-background-color);
    
 }
 
-.form-btn {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 28px;
-    width: 200px;
-
-    font-weight: 700;
-    font-size: 16px;
-    line-height: calc(30/16);
-    letter-spacing: 0.06em;
-
-    color: var(--primary-background-color);
-    background-color: transparent;
-
-    transition: background-color 250ms var(--timing-fun);
-
-    
+.subscription-btn-text {
+    margin-right: 10px;
 }
-
-
-.form-btn:hover,
-.form-btn:focus {
-  background-color: var(--primary-accent-color);
-}
-
-
-
 
 /* PORTFOLIO */
 
@@ -626,10 +602,7 @@ color: var(--primary-background-color);
 
 .portfolio-card {
 flex-basis: calc((100% - 60px) / 3);
-/* outline: 1px solid var(--outline);
-transition-property: box-shadow;
-transition-duration: var(--duration);
-transition-timing-function: var(--timing-fun); */
+
     }
 
 
@@ -727,11 +700,6 @@ transition-timing-function: var(--timing-fun); */
 
 
 
-
-
-
-
-
  /* MODAL */
 
  .backdrop {
@@ -759,6 +727,7 @@ pointer-events:none;
  }
 
  .modal {
+    
     position: relative;   
     width: 528px;
     height: 581px;
@@ -786,8 +755,8 @@ pointer-events:none;
     top: 8px;
     right: 8px;
     width: 30px;
-        height: 30px;
-
+    height: 30px;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -806,23 +775,9 @@ pointer-events:none;
 .modal-close:focus {
     fill: var(--primary-accent-color);
 }
-
-
-    .modal-form {
-    display: flex;
-    flex-direction: column;
-    /* flex-basis: center; */
-    align-items: center;
-    gap: 10px;
-
-    font-size: 12px;
-    line-height: calc(14/12);
-    letter-spacing: 0.01em;
-    
-
-}
-
+ 
 .modal-title {
+        display: block;
         font-size: 20px;
         line-height: calc(23/20);
         text-align: center;
@@ -837,18 +792,26 @@ pointer-events:none;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    width: 448px;   
+    width: 100%;
+    margin-bottom: 10px;
 
 }
 
 
+.modal-label {
+    font-size: 12px;
+    line-height: calc(14/12);
+    display: block;
+    margin-bottom: 4px;
+
+}
 
 .modal-input {
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     padding: 12px 42px;
     font-size: 16px;
+    
 }
 
 
@@ -864,7 +827,8 @@ border: 1px solid var(--primary-accent-color);
 
 .modal-icon {
     position: absolute;
-    bottom: 11px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 12px;
     
     }
@@ -877,7 +841,7 @@ border: 1px solid var(--primary-accent-color);
      
 
     .modal-comment {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
 
@@ -901,7 +865,7 @@ font-size: 12px;
 
 .policy {
     
-    margin-bottom: 20px;
+    margin-bottom: 30px;
    
     font-size: 14px;
     line-height: calc(24/14);
@@ -914,12 +878,6 @@ font-size: 12px;
         color: var(--primary-accent-color);
     }
 
-    .checkbox-input {
-        position: absolute;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-    }
 
     
     .checkbox-label {
@@ -928,79 +886,39 @@ font-size: 12px;
         justify-content: center;
         align-items: center;
         
-
     }
 
         .checkbox {
             
             width: 16px;
             height: 15px;
-            background-image: url(./images/39-checkbox-unchecked.svg;);
-   
-        }
+           
+            border: 2px solid 
+                var(--footer-background-color);
+            border-radius: 4px;
+        } 
+
+ /* ACTIVE */
+
+ .checkbox-input:hover+.checkbox,
+ .checkbox-input:focus+.checkbox {
+    
+     border: 2px solid var(--primary-accent-color);
+ }
 
 /* CHECKED */
     .checkbox-input:checked + .checkbox {
-        background-image: url(./images/40-checkbox-checked.svg);
+        background-color: var(--primary-accent-color);
+        background-image: url(../images/40-checkbox-checked.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 2px solid var(--primary-accent-color);
         }
 
 
 
-.modal-btn {
-padding: 10px 52px; 
-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-            0px 1px 1px rgba(0, 0, 0, 0.14),
-            0px 2px 1px rgba(0, 0, 0, 0.2);
-background-color: var(--primary-accent-color);
-transition: background-color 250ms var(--timing-fun);
-}
-
-.modal-btn:hover,
-.modal-btn:focus {
-    background-color: #188CE8;
-}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .checkbox {
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance: none;
-    position: absolute;
-}  */
-
-
-
-/* .check-label::after {
-   content: '';
-   display: inline-block;
-   width: 16px;
-   height: 15px;
-    background-color: tomato;
-}
-
-.checkbox-checked + check-label::after {
-    background-color: #212121;
-} */
